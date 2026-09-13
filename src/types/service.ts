@@ -52,6 +52,28 @@ export interface OfficialPortalLink {
   domainAlert?: string;
 }
 
+export interface PortalFeature {
+  title: string;
+  description: string;
+  category: 'core_service' | 'verification' | 'security_privacy' | 'tracking_records' | 'grievance_support';
+  url?: string;
+  badge?: string;
+}
+
+export interface WebsiteFeaturesGuide {
+  portalName: string;
+  officialUrl: string;
+  summary: string;
+  highlights: string[];
+  featuresList: PortalFeature[];
+  regulatoryReference?: {
+    authority: string;
+    circularOrOrder: string;
+    url: string;
+    keyTakeaways: string[];
+  };
+}
+
 export interface HotspotAnnotation {
   id: string;
   title: string;
@@ -149,8 +171,9 @@ export interface ServiceDetail {
     notes: string;
   };
 
-  // 05: Official Portals Directory
+  // 05: Official Portals Directory & Portal Features Breakdown
   officialPortals: OfficialPortalLink[];
+  websiteFeatures?: WebsiteFeaturesGuide;
 
   // 06: Step-by-Step Visual Walkthrough
   steps: ApplicationStep[];

@@ -3,38 +3,43 @@ import { ServiceDetail } from '../../types/service';
 export const BANK_ACCOUNT_SERVICE: ServiceDetail = {
   id: 'bank-savings-account',
   slug: 'bank-savings-account',
-  name: 'Digital Savings Bank Account (Instant Opening via Video KYC)',
-  shortName: 'Bank Savings Account',
-  tagline: 'Zero-balance or regular digital savings account opened in 10 minutes via Video KYC.',
+  name: 'Digital Savings Bank Account & RBI Master Direction on KYC',
+  shortName: 'Bank Account & KYC',
+  tagline: 'Zero-balance digital account opening via Video KYC (V-CIP) & official RBI Master Direction rules for OVDs, Re-KYC, and CKYCR.',
   category: 'banking',
-  issuingAuthority: 'Reserve Bank of India (RBI) Regulated Scheduled Banks (SBI, HDFC, ICICI, etc.)',
+  issuingAuthority: 'Reserve Bank of India (RBI) / Scheduled Commercial Banks',
   mode: 'online_only',
-  trustRating: 5,
-  lastVerifiedDate: '13 September 2026',
-  officialPortalUrl: 'https://bank.sbi / https://www.hdfcbank.com / https://www.icicibank.com',
-  estimatedDuration: 'Account Number: Instant (10 minutes) | Debit Card Delivery: 5 to 7 days',
-  standardFee: '₹0 (Free Account Opening; Annual debit card charges ₹150-₹300 per bank)',
+  trustRating: 4.9,
+  lastVerifiedDate: 'September 2026',
+  officialPortalUrl: 'https://www.rbi.org.in/commonman/english/Scripts/FAQs.aspx?Id=3782',
+  estimatedDuration: '10 to 30 minutes (Instant account number & UPI)',
+  standardFee: '₹0.00 (Zero opening fee / Zero minimum balance)',
   digiLockerAvailable: true,
-  description: 'Digital savings account opening using RBI-mandated Video Customer Identification Process (V-CIP). Requires Aadhaar OTP and a short 2-minute live video call with a bank officer to activate full transaction limits without visiting a branch.',
+  description: 'Complete step-by-step guidance for opening a full-service digital savings bank account from home using Video KYC (V-CIP), compliant with the Reserve Bank of India (RBI) Master Direction on KYC. Covers Officially Valid Documents (OVDs), Deemed OVDs for address, Small Accounts, CKYCR 14-digit identifiers, and Periodic Updation (Re-KYC).',
 
   overviewFacts: [
-    { key: 'Regulatory Authority', value: 'Reserve Bank of India (RBI)' },
-    { key: 'Verification Mode', value: '100% Online Paperless via Video KYC (V-CIP)' },
-    { key: 'Account Number Issuance', value: 'Generated immediately upon video call completion' },
-    { key: 'Debit Card & Chequebook', value: 'Dispatched to Aadhaar address within 5 to 7 days' },
-    { key: 'UPI & Net Banking', value: 'Instant activation via phone number' },
-    { key: 'Initial Funding', value: '₹0 (for Zero-balance accounts) or ₹1,000 to ₹10,000 per bank rules' }
+    { key: 'Account Type', value: 'Zero Balance Regular Savings Account (BSBDA / Digital Savings)' },
+    { key: 'KYC Mode', value: 'Video-based Customer Identification Process (V-CIP) / e-KYC' },
+    { key: 'RBI Regulation', value: 'RBI Master Direction on KYC (Updated 2024-2026)' },
+    { key: 'OVD Count', value: '6 Officially Valid Documents (Aadhaar, Passport, DL, Voter ID, NREGA, NPR)' },
+    { key: 'CKYCR Integration', value: '14-Digit KYC Identifier (KIN) for universal banking portability' },
+    { key: 'Debit Card & UPI', value: 'Instant Virtual Debit Card + Physical Card delivered in 5-7 days' }
   ],
 
   eligibilityCriteria: [
     {
-      title: 'Resident Indian Individuals',
-      description: 'Must be an Indian resident aged 18 years or older with full legal capacity.',
+      title: 'Indian Resident Individual',
+      description: 'Must be an Indian citizen residing within the territorial borders of India during the Video KYC call.',
       isEligible: true
     },
     {
-      title: 'Valid Aadhaar & PAN Holder',
-      description: 'Must possess original physical PAN card and Aadhaar linked to an active mobile number.',
+      title: 'Age Requirement',
+      description: 'Must be 18 years of age or older for contactless digital account opening.',
+      isEligible: true
+    },
+    {
+      title: 'Valid PAN & Aadhaar (or Form 60 / OVD)',
+      description: 'Must hold PAN (or Form 60) and any one Officially Valid Document (OVD) with mobile OTP readiness.',
       isEligible: true
     },
     {
@@ -46,33 +51,54 @@ export const BANK_ACCOUNT_SERVICE: ServiceDetail = {
 
   documentRequirements: [
     {
-      id: 'bank_pan',
-      title: 'Original Physical PAN Card',
-      purpose: 'Mandatory for tax reporting and Video KYC inspection',
-      description: 'Must show the ORIGINAL physical plastic PAN card to the camera during video call (e-PAN on phone screen is NOT permitted by RBI):',
+      id: 'bank_ovd',
+      title: 'RBI Officially Valid Document (OVD) for Identity & Address',
+      purpose: 'Statutory Customer Due Diligence (CDD) under RBI Master Direction Paragraph 16',
+      description: 'Under RBI regulations, any ONE of the following 6 Officially Valid Documents (OVDs) or equivalent e-document satisfies identity & address:',
       isMandatory: true,
       options: [
-        { id: 'pan_card', name: 'Original Physical PAN Card', category: 'identity', isOriginalRequired: true }
+        { id: 'aadhaar_card', name: 'Proof of possession of Aadhaar number (OTP e-KYC / Offline XML)', category: 'identity', isOriginalRequired: false },
+        { id: 'passport', name: 'Valid Indian Passport', category: 'identity', isOriginalRequired: true },
+        { id: 'driving_licence', name: 'Driving Licence (Issued by State RTO)', category: 'identity', isOriginalRequired: true },
+        { id: 'voter_id', name: 'Voter\'s Identity Card (Issued by Election Commission of India)', category: 'identity', isOriginalRequired: true },
+        { id: 'nrega_job_card', name: 'Job Card issued by NREGA (Duly signed by State Govt officer)', category: 'identity', isOriginalRequired: true },
+        { id: 'npr_letter', name: 'Letter issued by National Population Register (NPR)', category: 'identity', isOriginalRequired: true }
       ]
     },
     {
-      id: 'bank_aadhaar',
-      title: 'Aadhaar Card with Registered Mobile Number',
-      purpose: 'Instant e-KYC demographic verification',
-      description: 'Used for instant online OTP authentication:',
+      id: 'bank_pan',
+      title: 'Permanent Account Number (PAN) or Form 60',
+      purpose: 'Mandatory under Income-tax Rules 1962 and RBI Master Direction for financial transactions',
+      description: 'Must show the ORIGINAL physical plastic PAN card to the camera during video call (e-PAN on phone screen is NOT permitted by RBI):',
       isMandatory: true,
       options: [
-        { id: 'aadhaar_card', name: 'Aadhaar Card (Mobile linked for OTP)', category: 'identity', isOriginalRequired: false }
+        { id: 'pan_card', name: 'Original Physical PAN Card (Laminated plastic card in hand)', category: 'identity', isOriginalRequired: true },
+        { id: 'form_60', name: 'Form No. 60 (Only if applicant does not possess a PAN card)', category: 'identity', isOriginalRequired: false }
+      ]
+    },
+    {
+      id: 'bank_deemed_ovd',
+      title: 'Deemed OVDs for Proof of Current Address (If Primary OVD has old address)',
+      purpose: 'Limited purpose proof of current residence with 3-month grace period',
+      description: 'If your primary OVD shows your permanent address but you currently reside elsewhere, any ONE of the following deemed OVDs is acceptable:',
+      isMandatory: false,
+      options: [
+        { id: 'utility_bill_elec', name: 'Electricity Bill (Not more than 2 months old)', category: 'address', isOriginalRequired: false },
+        { id: 'utility_bill_water_gas', name: 'Water or Piped Gas Bill (Not more than 2 months old)', category: 'address', isOriginalRequired: false },
+        { id: 'postpaid_phone_bill', name: 'Telephone or Post-paid Mobile Phone Bill (< 2 months old)', category: 'address', isOriginalRequired: false },
+        { id: 'property_tax_receipt', name: 'Property or Municipal Tax Receipt', category: 'address', isOriginalRequired: false },
+        { id: 'ppo_order', name: 'Pension Payment Order (PPO) containing current address', category: 'address', isOriginalRequired: false },
+        { id: 'employer_allotment', name: 'Accommodation Allotment Letter from Govt/PSU/SCB/Listed Co.', category: 'address', isOriginalRequired: false }
       ]
     },
     {
       id: 'bank_signature',
-      title: 'Blank White Paper & Blue/Black Pen for Live Signature',
+      title: 'Blank White Paper & Pen for Live Specimen Signature',
       purpose: 'Capture specimen signature for chequebook and high-value transactions',
       description: 'You will sign on paper during the live video call while the officer observes:',
       isMandatory: true,
       options: [
-        { id: 'scanned_signature', name: 'Live Pen & Paper Signature', category: 'photo_biometric', isOriginalRequired: true }
+        { id: 'scanned_signature', name: 'Live Pen & Paper Signature on Camera', category: 'photo_biometric', isOriginalRequired: true }
       ]
     }
   ],
@@ -98,10 +124,40 @@ export const BANK_ACCOUNT_SERVICE: ServiceDetail = {
       detail: 'The bank app must verify you are physically inside Indian borders via GPS geofencing.',
       category: 'technical',
       isCrucial: true
+    },
+    {
+      id: 'chk_bank_white_paper',
+      label: 'Blank white sheet of paper & dark black/blue pen ready',
+      detail: 'Bank officer will prompt you to sign on camera for signature archiving.',
+      category: 'technical',
+      isCrucial: true
     }
   ],
 
   officialPortals: [
+    {
+      label: 'RBI Master Direction on KYC - Official FAQs (Id=3782)',
+      url: 'https://www.rbi.org.in/commonman/english/Scripts/FAQs.aspx?Id=3782',
+      purpose: 'information',
+      isGovtVerified: true,
+      badgeText: 'RBI Official Regulatory FAQs',
+      domainAlert: 'Authoritative Reserve Bank of India KYC instructions for all banks and citizens'
+    },
+    {
+      label: 'Central KYC Registry (CKYCR Portal - ckycindia.in)',
+      url: 'https://www.ckycindia.in',
+      purpose: 'verification',
+      isGovtVerified: true,
+      badgeText: 'CKYCR Registry Portal',
+      domainAlert: 'Find or verify your 14-digit KYC Identifier (KIN)'
+    },
+    {
+      label: 'RBI Kehta Hai - Citizen Anti-Fraud Awareness',
+      url: 'https://rbikehtahai.rbi.org.in',
+      purpose: 'information',
+      isGovtVerified: true,
+      badgeText: 'RBI Kehta Hai Safety Portal'
+    },
     {
       label: 'State Bank of India (SBI YONO Savings Account)',
       url: 'https://bank.sbi/web/personal-banking/accounts/saving-account/insta-plus-video-kyc-savings-account',
@@ -125,6 +181,80 @@ export const BANK_ACCOUNT_SERVICE: ServiceDetail = {
       badgeText: 'ICICI Official Portal'
     }
   ],
+
+  // Official Website Capabilities & Features Breakdown
+  websiteFeatures: {
+    portalName: 'Reserve Bank of India (RBI) - Master Direction on KYC Regulatory Framework',
+    officialUrl: 'https://www.rbi.org.in/commonman/english/Scripts/FAQs.aspx?Id=3782',
+    summary: 'The statutory Know Your Customer (KYC) regulatory framework published by the Reserve Bank of India (RBI) governing Customer Due Diligence (CDD), Officially Valid Documents (OVDs), Central KYC Records Registry (CKYCR), Video-based Customer Identification Process (V-CIP), and Periodic Updation (Re-KYC) across all banks and financial institutions.',
+    highlights: [
+      '6 Designated Officially Valid Documents (OVDs): Passport, DL, Aadhaar, Voter ID, NREGA Job Card, NPR Letter',
+      'Deemed OVDs for address proof (utility bills < 2 months) with 3-month grace period to submit updated OVD',
+      'Small Accounts framework: Zero OVD required, valid for 12 months (max balance ₹50k, deposits ₹1L/yr)',
+      'CKYCR 14-digit KYC Identifier (KIN): Eliminates repetitive document submissions across financial entities',
+      'Video KYC (V-CIP): Facial recognition & live audio-visual verification on par with branch visits',
+      'Periodic Updation (Re-KYC): High risk (2 yrs), Medium (8 yrs), Low (10 yrs); self-declaration allowed if no change',
+      'Inoperative Accounts (> 2 yrs dormant) reactivated via V-CIP or any branch without fees'
+    ],
+    featuresList: [
+      {
+        title: '6 Officially Valid Documents (OVD) Standard',
+        description: 'Under Section 5 of the RBI Master Direction, only 6 documents constitute valid proof of identity and address: Passport, Driving Licence, proof of possession of Aadhaar, Voter Identity Card, NREGA Job Card, and NPR letter. Ration Card is NOT an OVD for banking.',
+        category: 'core_service',
+        url: 'https://www.rbi.org.in/commonman/english/Scripts/FAQs.aspx?Id=3782',
+        badge: '6 Statutory OVDs'
+      },
+      {
+        title: 'Deemed OVDs for Address Proof (3-Month Grace Period)',
+        description: 'If your primary OVD lacks your current residential address, RBI permits submitting a deemed OVD (utility bills < 2 months old, property tax receipt, PPO, or employer allotment letter), provided an updated OVD is submitted within 3 months.',
+        category: 'core_service',
+        url: 'https://www.rbi.org.in/commonman/english/Scripts/FAQs.aspx?Id=3782',
+        badge: '3-Month Window'
+      },
+      {
+        title: 'Small Accounts Scheme (No OVD Required)',
+        description: 'Under Paragraph 23 of the Master Direction, individuals lacking any OVD can open a "Small Account" with a self-attested photo and signature before a bank officer. Operational for 12 months with limits: balance <= ₹50k, credits <= ₹1L/year, withdrawals <= ₹10k/month.',
+        category: 'core_service',
+        url: 'https://www.rbi.org.in/commonman/english/Scripts/FAQs.aspx?Id=3782',
+        badge: 'Zero OVD Access'
+      },
+      {
+        title: 'Central KYC Records Registry (CKYCR) & 14-Digit KIN',
+        description: 'Centralized registry (www.ckycindia.in) that stores verified customer KYC records. Once an RE uploads your data, you receive a 14-digit KYC Identifier (KIN). Sharing this KIN with other banks or mutual funds eliminates resubmitting physical documents.',
+        category: 'tracking_records',
+        url: 'https://www.ckycindia.in',
+        badge: 'Universal KIN'
+      },
+      {
+        title: 'Video-based Customer Identification Process (V-CIP)',
+        description: 'RBI-regulated contactless onboarding method using live audio-visual interaction, geo-tagging inside India, and AI facial matching against Aadhaar/PAN. RBI clarifies that blinking eyes or specific facial gestures are NOT mandatory for liveness check, ensuring PwD accessibility.',
+        category: 'verification',
+        url: 'https://www.rbi.org.in/commonman/english/Scripts/FAQs.aspx?Id=3782',
+        badge: 'Contactless V-CIP'
+      },
+      {
+        title: 'Periodic Updation of KYC (Re-KYC Standards)',
+        description: 'Periodic KYC refresh mandated at least once in 2 years for high-risk, 8 years for medium-risk, and 10 years for low-risk customers. If there is NO change in details, a simple self-declaration via Net Banking, Mobile App, ATM, or registered email/SMS is legally valid.',
+        category: 'security_privacy',
+        url: 'https://www.rbi.org.in/commonman/english/Scripts/FAQs.aspx?Id=3782',
+        badge: 'Digital Re-KYC'
+      },
+      {
+        title: 'Reactivation of Inoperative Accounts via V-CIP',
+        description: 'Accounts with no customer-induced transactions for over 2 years are classified as inoperative. Under RBI instructions (Jan 2024), banks must facilitate activation at ANY branch (home or non-home) or through Video KYC (V-CIP) without charging fees.',
+        category: 'core_service',
+        url: 'https://www.rbi.org.in/commonman/english/Scripts/FAQs.aspx?Id=3782',
+        badge: 'Free Activation'
+      },
+      {
+        title: 'RBI Kehta Hai - Anti-Fraud & Phishing Protection',
+        description: 'RBI warns the public never to click links embedded in unsolicited SMS or emails claiming your bank account or KYC is blocked. Banks never send links to complete KYC updates; all updates should be done via official banking portals only.',
+        category: 'grievance_support',
+        url: 'https://rbikehtahai.rbi.org.in',
+        badge: 'Anti-Phishing'
+      }
+    ]
+  },
 
   steps: [
     {
@@ -376,12 +506,40 @@ export const BANK_ACCOUNT_SERVICE: ServiceDetail = {
 
   faqs: [
     {
-      question: 'Is a Video KYC savings account equal to an account opened at a physical branch?',
-      answer: 'Yes, 100%. Under RBI master directions, a Video KYC verified account has zero transaction limit restrictions and carries the full privileges of a traditional branch account.'
+      question: 'What are the official documents required for opening an individual bank account under RBI Master Direction?',
+      answer: 'Under Question 5 of the RBI Master Direction on KYC, an individual must submit: (a) Any ONE of the 6 Officially Valid Documents (OVDs): Passport, Driving Licence, Proof of possession of Aadhaar number, Voter\'s Identity Card, NREGA Job Card (signed by State officer), or Letter issued by the National Population Register (NPR); and (b) PAN or equivalent e-document, or Form No. 60 as defined in Income-tax Rules, 1962.'
     },
     {
-      question: 'Can I open a bank account if my current address is different from my Aadhaar address?',
-      answer: 'Yes. Most banks allow you to enter a separate "Communication / Current Address" during the digital form, where your debit card and chequebook will be couriered, while using Aadhaar as permanent identity proof.'
+      question: 'Is Aadhaar card mandatory for opening a bank account under RBI KYC rules?',
+      answer: 'No. As clarified in Question 10 of the RBI Master Direction FAQs, Aadhaar is only mandatory if you wish to receive government subsidies, grants, or benefits under Section 7 of the Aadhaar Act (such as DBT, PM-KISAN, or LPG subsidy). For regular bank accounts, providing Aadhaar is purely voluntary, and you may submit any other OVD such as Passport, Voter ID, or Driving Licence.'
+    },
+    {
+      question: 'What is a "Small Account" and how can someone without any OVD open it?',
+      answer: 'Under Paragraph 23 of the Master Direction (FAQ Q6), if a customer does not possess any OVD, they can still open a "Small Account" by submitting a self-attested photograph and signing/thumb-printing in the presence of a bank officer. It remains operational for 12 months with limits: balance never exceeding ₹50,000, total credits not exceeding ₹1,00,000 per financial year, and total withdrawals/transfers capped at ₹10,000 per month.'
+    },
+    {
+      question: 'Can I open an account in another city if my OVD shows my hometown address?',
+      answer: 'Yes (FAQ Q7 & Q8). You can submit a "deemed to be OVD" for current address proof (utility bill not older than 2 months for electricity/water/piped gas/postpaid mobile, property tax receipt, or employer accommodation allotment letter). You are given a 3-month grace period to submit an updated OVD showing your current address.'
+    },
+    {
+      question: 'What is a Central KYC Registry (CKYCR) KYC Identifier (KIN)?',
+      answer: 'A KYC Identifier is a unique 14-digit code assigned to you by the Central KYC Records Registry (www.ckycindia.in) after your first verified account (FAQ Q14). You can provide your KIN to any new bank, mutual fund, or insurance company with your consent, which downloads your verified KYC data directly and eliminates the need to submit physical documents again.'
+    },
+    {
+      question: 'Are eye blinking or facial gestures mandatory during Video KYC (V-CIP)?',
+      answer: 'No. In FAQ Q20, the Reserve Bank of India explicitly states that making specific facial gestures like blinking of eyes, smiling, or frowning is NOT mandatory for the liveness check. Banks are instructed to provide reasonable accommodation for special needs and Persons with Disabilities (PwDs).'
+    },
+    {
+      question: 'How often do banks require Periodic Updation of KYC (Re-KYC) and do I need to visit the branch?',
+      answer: 'Under FAQ Q22 & Q24, periodic updation must be conducted at least once in 2 years for high-risk, 8 years for medium-risk, and 10 years for low-risk customers. If there is NO change in your information, you do NOT need to visit a branch—a simple self-declaration submitted via Internet Banking, Mobile App, ATM, or registered email/SMS is legally valid.'
+    },
+    {
+      question: 'What is an inoperative account and how can it be reactivated under RBI guidelines?',
+      answer: 'Under RBI\'s circular DOR.SOG(LEG).REC/64 dated January 1, 2024 (FAQ Q36 & Q37), an account with no customer-induced transactions for over 2 years is inoperative. Banks must facilitate reactivation at ANY branch (home or non-home) or through Video KYC (V-CIP) completely free of cost upon submitting updated KYC details.'
+    },
+    {
+      question: 'What should I do if I receive an SMS or email with links to update KYC?',
+      answer: 'Under FAQ Q29 and RBI Kehta Hai notices, you must NEVER click on links embedded in SMS or emails claiming your KYC is expiring or bank account is blocked. Banks never send links to complete KYC. These are cyber fraud scams designed to drain accounts. Always initiate updates directly through official banking apps or at the branch.'
     }
   ]
 };

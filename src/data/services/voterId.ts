@@ -117,10 +117,10 @@ export const VOTER_ID_SERVICE: ServiceDetail = {
       purpose: 'application',
       isGovtVerified: true,
       badgeText: 'Official Portal (voters.eci.gov.in)',
-      domainAlert: 'Only use voters.eci.gov.in. Never pay any fee for voter registration.'
+      domainAlert: 'Only use voters.eci.gov.in. Voter registration in India is 100% free; never pay any third-party fee.'
     },
     {
-      label: 'Form 6 Direct Application Link',
+      label: 'Form 6 Direct Application Link (New Voter)',
       url: 'https://voters.eci.gov.in/form6',
       purpose: 'application',
       isGovtVerified: true,
@@ -134,13 +134,100 @@ export const VOTER_ID_SERVICE: ServiceDetail = {
       badgeText: 'Status Tracker'
     },
     {
-      label: 'Download e-EPIC Digital Voter Card',
+      label: 'Search in Electoral Roll (electoralsearch.eci.gov.in)',
+      url: 'https://electoralsearch.eci.gov.in',
+      purpose: 'verification',
+      isGovtVerified: true,
+      badgeText: 'Electoral Roll Search'
+    },
+    {
+      label: 'Download e-EPIC Digital Voter Card (PDF)',
       url: 'https://voters.eci.gov.in/e-epic-download',
       purpose: 'verification',
       isGovtVerified: true,
       badgeText: 'e-EPIC PDF Download'
     }
   ],
+
+  // Official Website Capabilities & Features Breakdown
+  websiteFeatures: {
+    portalName: 'Election Commission of India (ECI) Voters\' Service Portal',
+    officialUrl: 'https://voters.eci.gov.in',
+    summary: 'The national centralized citizen platform developed by the Election Commission of India (ECI) for all electoral services: enrolling first-time voters (Form 6), overseas citizens (Form 6A), corrections and address shifting (Form 8), deletions (Form 7), electoral roll lookups, and instant e-EPIC card downloads.',
+    highlights: [
+      '100% Free Citizen Service: No fee or government charge for registration, correction, or PVC card delivery',
+      'Form 6 for Indian residents turning 18 & Form 6A for non-resident overseas Indian citizens',
+      'Form 8 provides 4 key facilities: shifting residence, demographic correction, replacement EPIC, and PwD tagging',
+      'Search Electoral Roll across India by Details, EPIC Number, or Mobile Number OTP',
+      'Download secure portable digital e-EPIC card with authenticated cryptographic QR code',
+      'Look up exact contact numbers of your Booth Level Officer (BLO) and designated Polling Station'
+    ],
+    featuresList: [
+      {
+        title: 'Form 6: New Voter Registration',
+        description: 'Primary application form for Indian citizens turning 18 years of age or individuals who have moved into a new assembly constituency and need fresh enrolment.',
+        category: 'core_service',
+        url: 'https://voters.eci.gov.in/form6',
+        badge: 'Form 6'
+      },
+      {
+        title: 'Form 6A: Overseas Indian Electors (NRI)',
+        description: 'Dedicated enrolment module for non-resident Indian citizens residing abroad who have not acquired citizenship of any other country, allowing them to vote in their home constituency.',
+        category: 'core_service',
+        url: 'https://voters.eci.gov.in/form6a',
+        badge: 'Form 6A (NRI)'
+      },
+      {
+        title: 'Form 7: Objection & Deletion of Name',
+        description: 'Allows filing an objection to proposed inclusion of a name or requesting deletion of an existing entry from the electoral roll due to death, permanent migration, or duplicate entries.',
+        category: 'core_service',
+        url: 'https://voters.eci.gov.in/form7',
+        badge: 'Form 7'
+      },
+      {
+        title: 'Form 8: Correction, Shifting, Replacement & PwD Marking',
+        description: 'Multi-purpose electoral modification form: (i) Shifting of residence to a new address, (ii) Correction of entries in existing roll (name, age, DOB, photo, mobile), (iii) Replacement of lost/damaged EPIC, and (iv) Marking as Person with Disabilities (PwD).',
+        category: 'core_service',
+        url: 'https://voters.eci.gov.in/form8',
+        badge: 'Form 8'
+      },
+      {
+        title: 'Search in Electoral Roll (3 Search Modes)',
+        description: 'Verify your name in the official national voters list via 3 convenient modes on electoralsearch.eci.gov.in: by Demographic Details (Name, Father\'s Name, AC), by 10-digit EPIC Number, or by Mobile Number with OTP.',
+        category: 'verification',
+        url: 'https://electoralsearch.eci.gov.in',
+        badge: 'Search Roll'
+      },
+      {
+        title: 'e-EPIC Digital Voter Card Download',
+        description: 'Download a secure, tamper-proof digital PDF version of your Voter Photo Identity Card with a high-resolution photograph and QR code, recognized on par with physical voter cards.',
+        category: 'core_service',
+        url: 'https://voters.eci.gov.in/e-epic-download',
+        badge: 'Digital e-EPIC'
+      },
+      {
+        title: 'Know Your Polling Station & Election Officials',
+        description: 'Instantly view your designated Polling Station name, building address, and contact details of your local Booth Level Officer (BLO), Electoral Registration Officer (ERO), and District Election Officer (DEO).',
+        category: 'verification',
+        url: 'https://voters.eci.gov.in',
+        badge: 'Find BLO'
+      },
+      {
+        title: 'Track Application Status with Reference ID',
+        description: 'Enter your unique Form Reference Number to monitor the 4-stage progression of your voter application: Submitted → Appointed BLO → Field Verified → Accepted/Rejected.',
+        category: 'tracking_records',
+        url: 'https://voters.eci.gov.in/track-application-status',
+        badge: 'Live Status'
+      },
+      {
+        title: 'National Voter Helpline 1950 & Mobile App',
+        description: 'Toll-free citizen assistance hotline (1950) operating across all states in multiple languages. Companion Voter Helpline App available on Android and iOS.',
+        category: 'grievance_support',
+        url: 'https://voters.eci.gov.in',
+        badge: 'Toll-Free 1950'
+      }
+    ]
+  },
 
   steps: [
     {

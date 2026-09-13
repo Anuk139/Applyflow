@@ -15,7 +15,14 @@ import {
   Lock,
   Search,
   Check,
-  Info
+  Info,
+  Globe,
+  Sparkles,
+  FileText,
+  Smartphone,
+  ArrowUpRight,
+  BookOpen,
+  ShieldAlert
 } from 'lucide-react';
 import { ServiceDetail } from '../../types/service';
 import { useApp } from '../../context/AppContext';
@@ -178,60 +185,273 @@ export const DocumentsSection: React.FC<SectionProps> = ({ service }) => {
   );
 };
 
-// 05: Official Portals Directory
+// 05: Official Portals Directory & Official Website Features Breakdown
 export const OfficialPortalsSection: React.FC<SectionProps> = ({ service }) => {
-  return (
-    <section id="sec-portals" className="space-y-4 pt-6">
-      <div className="border-b border-slate-200 pb-3">
-        <span className="text-xs font-bold text-brand-600 uppercase tracking-wider">Section 05</span>
-        <h2 className="text-2xl font-black text-slate-900 tracking-tight">
-          Verified Official Websites & Service Directory
-        </h2>
-        <p className="text-xs text-slate-500 mt-1">
-          Always ensure you apply exclusively on genuine government and banking domains.
-        </p>
-      </div>
+  const [selectedFeatureCategory, setSelectedFeatureCategory] = useState<string>('all');
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {service.officialPortals.map((portal, idx) => (
-          <div 
-            key={idx} 
-            className="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs flex flex-col justify-between space-y-3"
-          >
-            <div>
-              <div className="flex items-center justify-between gap-2 mb-1.5">
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                  {portal.badgeText}
-                </span>
-                <span className="text-[11px] font-bold text-slate-400 capitalize">
-                  {portal.purpose}
-                </span>
+  const filteredFeatures = service.websiteFeatures?.featuresList.filter(f => {
+    if (selectedFeatureCategory === 'all') return true;
+    return f.category === selectedFeatureCategory;
+  }) || [];
+
+  return (
+    <section id="sec-portals" className="space-y-8 pt-6">
+      
+      {/* 05-A: Verified Official Websites Directory */}
+      <div className="space-y-4">
+        <div className="border-b border-slate-200 pb-3">
+          <span className="text-xs font-bold text-brand-600 uppercase tracking-wider">Section 05</span>
+          <h2 className="text-2xl font-black text-slate-900 tracking-tight">
+            Verified Official Websites & Service Directory
+          </h2>
+          <p className="text-xs text-slate-500 mt-1">
+            Always verify that you apply exclusively on genuine government and banking domains (.gov.in, .nic.in, or verified banking hosts).
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {service.officialPortals.map((portal, idx) => (
+            <div 
+              key={idx} 
+              className="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs flex flex-col justify-between space-y-3 hover:border-brand-300 transition-colors"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full flex items-center gap-1 border border-emerald-200">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                    {portal.badgeText}
+                  </span>
+                  <span className="text-[10px] font-bold text-slate-400 capitalize bg-slate-100 px-2 py-0.5 rounded-md">
+                    {portal.purpose}
+                  </span>
+                </div>
+
+                <h4 className="font-extrabold text-sm text-slate-900 line-clamp-2">
+                  {portal.label}
+                </h4>
+
+                {portal.domainAlert && (
+                  <p className="text-[11px] text-amber-800 bg-amber-50 rounded-xl p-2.5 border border-amber-200/80 mt-2.5 font-medium leading-relaxed">
+                    ⚠️ {portal.domainAlert}
+                  </p>
+                )}
               </div>
 
-              <h4 className="font-extrabold text-sm text-slate-900">
-                {portal.label}
-              </h4>
+              <a
+                href={portal.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-3 bg-brand-50 hover:bg-brand-600 text-brand-700 hover:text-white text-xs font-extrabold rounded-xl border border-brand-200 hover:border-brand-600 transition-all flex items-center justify-center gap-1.5 shadow-xs"
+              >
+                <span>Visit Verified Portal</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
 
-              {portal.domainAlert && (
-                <p className="text-[11px] text-amber-800 bg-amber-50 rounded-lg p-2 border border-amber-200/80 mt-2 font-medium">
-                  ⚠️ {portal.domainAlert}
-                </p>
-              )}
+      {/* 05-B: Official Website Capabilities & Features Breakdown */}
+      {service.websiteFeatures && (
+        <div className="bg-slate-50/80 rounded-3xl border border-slate-200/80 p-6 sm:p-8 space-y-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-5">
+            <div className="space-y-1">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-100 text-brand-800 text-[10px] font-black uppercase tracking-wider border border-brand-200">
+                <Globe className="w-3 h-3 text-brand-600" />
+                <span>Official Portal Capabilities</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+                What Can You Do on the Official Portal?
+              </h3>
+              <p className="text-xs text-slate-600 max-w-2xl leading-relaxed">
+                {service.websiteFeatures.summary}
+              </p>
             </div>
 
             <a
-              href={portal.url}
+              href={service.websiteFeatures.officialUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-2.5 px-3 bg-brand-50 hover:bg-brand-100 text-brand-700 text-xs font-bold rounded-xl border border-brand-200 transition-colors flex items-center justify-center gap-1.5"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition-all shadow-xs flex-shrink-0 self-start md:self-auto"
             >
-              <span>Visit Verified Portal</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <span>Open Official Website</span>
+              <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>
-        ))}
-      </div>
+
+          {/* Highlights Pills */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
+            {service.websiteFeatures.highlights.map((highlight, hIdx) => (
+              <div 
+                key={hIdx} 
+                className="bg-white rounded-xl p-3 border border-slate-200 text-xs font-medium text-slate-700 flex items-start gap-2 shadow-2xs"
+              >
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                <span>{highlight}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Feature Category Filters */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+            {[
+              { id: 'all', label: 'All Capabilities' },
+              { id: 'core_service', label: 'Core Applications' },
+              { id: 'verification', label: 'Verification & Search' },
+              { id: 'security_privacy', label: 'Security & Privacy' },
+              { id: 'tracking_records', label: 'Tracking & History' },
+              { id: 'grievance_support', label: 'Help & Redressal' },
+            ].map(cat => (
+              <button
+                key={cat.id}
+                onClick={() => setSelectedFeatureCategory(cat.id)}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-colors ${
+                  selectedFeatureCategory === cat.id
+                    ? 'bg-slate-900 text-white shadow-xs'
+                    : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {filteredFeatures.map((feat, fIdx) => (
+              <div 
+                key={fIdx}
+                className="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-xs flex flex-col justify-between space-y-3 hover:shadow-md transition-all group"
+              >
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                      {feat.badge || feat.category.replace('_', ' ')}
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                      Official Tool
+                    </span>
+                  </div>
+
+                  <h4 className="font-black text-sm text-slate-900 group-hover:text-brand-600 transition-colors leading-snug">
+                    {feat.title}
+                  </h4>
+
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {feat.description}
+                  </p>
+                </div>
+
+                {feat.url && (
+                  <a
+                    href={feat.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-extrabold text-brand-600 hover:text-brand-800 transition-colors pt-2 border-t border-slate-100"
+                  >
+                    <span>Launch on Portal</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 05-C: RBI Master Direction on KYC - Special Regulatory Feature for Banking */}
+      {service.id === 'bank-savings-account' && (
+        <div className="bg-gradient-to-br from-indigo-950 via-slate-900 to-brand-950 text-white rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-indigo-800/60 pb-5">
+            <div className="space-y-1.5">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-extrabold uppercase tracking-wider border border-indigo-500/30">
+                <BookOpen className="w-3.5 h-3.5" />
+                <span>Statutory RBI Regulatory Framework</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black tracking-tight text-white">
+                Reserve Bank of India (RBI) Master Direction on KYC
+              </h3>
+              <p className="text-xs sm:text-sm text-indigo-200/90 max-w-3xl leading-relaxed">
+                Official citizen rules extracted from RBI's Master Direction on KYC FAQs (<a href="https://www.rbi.org.in/commonman/english/Scripts/FAQs.aspx?Id=3782" target="_blank" rel="noopener noreferrer" className="underline font-bold text-white hover:text-indigo-200">RBI FAQ Id=3782</a>). Understand your rights, accepted documents, and fraud protection.
+              </p>
+            </div>
+
+            <a
+              href="https://www.rbi.org.in/commonman/english/Scripts/FAQs.aspx?Id=3782"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-indigo-50 text-indigo-950 text-xs font-black transition-all shadow-md flex-shrink-0 self-start md:self-auto"
+            >
+              <span>Read RBI FAQs Live</span>
+              <ExternalLink className="w-4 h-4 text-indigo-700" />
+            </a>
+          </div>
+
+          {/* 6 Key Pillars of RBI KYC Framework */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-left">
+            <div className="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 space-y-2">
+              <span className="text-[10px] font-black uppercase tracking-wider text-indigo-300 bg-indigo-500/30 px-2 py-0.5 rounded">
+                FAQ Q5 • Document Rules
+              </span>
+              <h4 className="font-extrabold text-sm text-white">6 Officially Valid Documents (OVDs)</h4>
+              <p className="text-xs text-indigo-100/80 leading-relaxed">
+                Under RBI rules, only <strong>6 documents</strong> prove identity & address: Passport, Driving Licence, proof of possession of Aadhaar, Voter ID, NREGA Job Card, and NPR Letter. (Ration cards are not OVDs).
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 space-y-2">
+              <span className="text-[10px] font-black uppercase tracking-wider text-indigo-300 bg-indigo-500/30 px-2 py-0.5 rounded">
+                FAQ Q7 • Address Grace
+              </span>
+              <h4 className="font-extrabold text-sm text-white">Deemed OVDs for Current Address</h4>
+              <p className="text-xs text-indigo-100/80 leading-relaxed">
+                If your OVD shows your hometown, submit a utility bill (&lt; 2 months old), property tax slip, or employer letter. RBI grants a <strong>3-month grace period</strong> to submit an updated OVD.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 space-y-2">
+              <span className="text-[10px] font-black uppercase tracking-wider text-indigo-300 bg-indigo-500/30 px-2 py-0.5 rounded">
+                FAQ Q6 • Financial Inclusion
+              </span>
+              <h4 className="font-extrabold text-sm text-white">Small Accounts (Zero OVDs)</h4>
+              <p className="text-xs text-indigo-100/80 leading-relaxed">
+                Don't possess any OVD? You can open a <strong>Small Account</strong> with just a self-attested photo and signature before a bank officer. Valid 12 months (balance &lt; ₹50,000, credits &lt; ₹1 Lakh/yr).
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 space-y-2">
+              <span className="text-[10px] font-black uppercase tracking-wider text-indigo-300 bg-indigo-500/30 px-2 py-0.5 rounded">
+                FAQ Q14 • Central Registry
+              </span>
+              <h4 className="font-extrabold text-sm text-white">14-Digit CKYCR Identifier (KIN)</h4>
+              <p className="text-xs text-indigo-100/80 leading-relaxed">
+                Your KYC is registered once at <strong>ckycindia.in</strong>. Share your 14-digit KIN with any new bank, demat, or insurer to download KYC instantly without physical paper submissions.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 space-y-2">
+              <span className="text-[10px] font-black uppercase tracking-wider text-indigo-300 bg-indigo-500/30 px-2 py-0.5 rounded">
+                FAQ Q20 • Video KYC (V-CIP)
+              </span>
+              <h4 className="font-extrabold text-sm text-white">No Mandatory Eye-Blinking</h4>
+              <p className="text-xs text-indigo-100/80 leading-relaxed">
+                RBI explicitly clarifies that blinking eyes or specific facial gestures are <strong>NOT mandatory</strong> for liveness checks during Video KYC. Reasonable accommodation is guaranteed for PwDs.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 space-y-2">
+              <span className="text-[10px] font-black uppercase tracking-wider text-indigo-300 bg-indigo-500/30 px-2 py-0.5 rounded">
+                FAQ Q22 & Q29 • Re-KYC & Safety
+              </span>
+              <h4 className="font-extrabold text-sm text-white">Self-Declaration & Anti-Fraud</h4>
+              <p className="text-xs text-indigo-100/80 leading-relaxed">
+                Periodic Updation requires NO branch visit if your details haven't changed: submit a self-declaration via NetBanking/ATM/SMS. <strong>Never click SMS links</strong> claiming to update KYC.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
     </section>
   );
 };

@@ -22,18 +22,21 @@ export const ALL_SERVICES: ServiceDetail[] = [
 // Rich service keyword aliases map for fuzzy search
 const SERVICE_KEYWORDS: Record<string, string[]> = {
   'pan-card': [
-    'pan', 'pancard', 'pan card', 'form 49a', '49a', 'e-pan', 'epan', 'instant pan', 
-    'tax id', 'income tax', 'nsdl', 'protean', 'uti', 'utiitsl', 'tin', 'financial id'
+    'pan', 'pancard', 'pan card', 'form 49a', 'form 49aa', '49a', '49aa', 'e-pan', 'epan', 'instant pan', 
+    'tax id', 'income tax', 'nsdl', 'protean', 'proteantech', 'proteantech.in', 'token number', 'ao code', 
+    'uti', 'utiitsl', 'tin', 'financial id', 'pan reprint', 'pan correction'
   ],
   'aadhaar-card': [
-    'aadhaar', 'aadhar', 'aadhar card', 'aadhaar card', 'uidai', 'myaadhaar', 
-    'uid', 'eid', 'enrolment', 'enrollment', 'biometrics', 'fingerprint', 'iris', 
+    'aadhaar', 'aadhar', 'aadhar card', 'aadhaar card', 'uidai', 'myaadhaar', 'uidai.gov.in', 'uidai.gov.in/hi',
+    'uid', 'eid', 'enrolment', 'enrollment', 'biometrics', 'fingerprint', 'iris', 'pvc card', 'masked aadhaar',
+    'lock biometrics', 'vid', 'virtual id', 'npci', 'bank seeding', 'document update',
     'baal aadhaar', 'ask', 'aadhaar seva kendra', 'demographic update', 'address update'
   ],
   'voter-id': [
     'voter', 'voter id', 'voter card', 'voters', 'voting', 'election', 'election card', 
-    'epic', 'e-epic', 'form 6', 'form 8', 'form6', 'form8', 'eci', 'blo', 'constituency',
-    'polling', 'elector', 'electoral roll', 'voters.eci.gov.in'
+    'epic', 'e-epic', 'form 6', 'form 6a', 'form 7', 'form 8', 'form6', 'form8', 
+    'eci', 'blo', 'constituency', 'polling', 'elector', 'electoral roll', 
+    'voters.eci.gov.in', 'electoralsearch', '1950', 'voter helpline'
   ],
   'passport-seva': [
     'passport', 'indian passport', 'pass port', 'tatkaal', 'tatkal', 'psk', 'popsk', 
@@ -47,8 +50,10 @@ const SERVICE_KEYWORDS: Record<string, string[]> = {
   ],
   'bank-savings-account': [
     'bank', 'banking', 'savings account', 'bank account', 'open bank account', 
+    'kyc', 'rbi', 'rbi kyc', 'master direction', 'faqs on master direction', 'ovd', 
+    'officially valid document', 'deemed ovd', 'small account', 'ckycr', 'kin', 'kyc identifier',
     'video kyc', 'vkyc', 'v-cip', 'zero balance', 'sbi', 'hdfc', 'icici', 'debit card', 
-    'chequebook', 'upi', 'net banking', 'cif', 'ifsc'
+    'chequebook', 'upi', 'net banking', 'cif', 'ifsc', 're-kyc', 'inoperative account'
   ],
   'national-scholarship-portal': [
     'scholarship', 'scholarships', 'nsp', 'national scholarship', 'otr', 'face auth', 

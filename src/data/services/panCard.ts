@@ -156,22 +156,29 @@ export const PAN_CARD_SERVICE: ServiceDetail = {
   officialPortals: [
     {
       label: 'Protean (NSDL) Official Application Portal',
-      url: 'https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html',
+      url: 'https://onlineservices.proteantech.in/paam/endUserRegisterContact.html',
       purpose: 'application',
       isGovtVerified: true,
-      badgeText: 'Official Authorized Portal',
-      domainAlert: 'Always verify URL starts with onlineservices.nsdl.com or tin-nsdl.com'
+      badgeText: 'Official Protean Portal',
+      domainAlert: 'Always verify URL is onlineservices.proteantech.in or onlineservices.nsdl.com. Never use unauthorized agents.'
     },
     {
-      label: 'UTIITSL PAN Online Portal',
+      label: 'Protean Registered User Login (Token Resume)',
+      url: 'https://onlineservices.proteantech.in/paam/endUserRegisterContact.html',
+      purpose: 'application',
+      isGovtVerified: true,
+      badgeText: 'Resume In-Progress Draft'
+    },
+    {
+      label: 'UTIITSL PAN Online Portal (Alternative Official Partner)',
       url: 'https://www.pan.utiitsl.com/PAN/newAOA.do',
       purpose: 'application',
       isGovtVerified: true,
-      badgeText: 'Official Authorized Portal',
+      badgeText: 'Official Partner (UTIITSL)',
       domainAlert: 'Alternative official provider designated by Income Tax Department'
     },
     {
-      label: 'Track PAN Application Status (NSDL)',
+      label: 'Track PAN Application Status (Protean TIN)',
       url: 'https://tin.tin.nsdl.com/pantan/StatusTrack.html',
       purpose: 'tracking',
       isGovtVerified: true,
@@ -182,9 +189,88 @@ export const PAN_CARD_SERVICE: ServiceDetail = {
       url: 'https://eportal.incometax.gov.in/iec/foservices/#/pre-login/instant-e-pan',
       purpose: 'application',
       isGovtVerified: true,
-      badgeText: '100% Free Instant e-PAN (Paperless)'
+      badgeText: '100% Free Instant e-PAN'
     }
   ],
+
+  // Official Website Capabilities & Features Breakdown
+  websiteFeatures: {
+    portalName: 'Protean eGov Technologies Online PAN Services Portal (formerly NSDL TIN)',
+    officialUrl: 'https://onlineservices.proteantech.in/paam/endUserRegisterContact.html',
+    summary: 'The primary digital gateway authorized by the Income Tax Department of India for issuing new PAN cards (Form 49A/49AA) and processing corrections. Offers multi-entity registration, session persistence via temporary tokens, paperless Aadhaar e-KYC, custom scan e-Sign, and automated AO Code assignment.',
+    highlights: [
+      'Apply under Form 49A (Indian Citizens), Form 49AA (Foreign Citizens), or Changes/Corrections',
+      'Session auto-recovery: 10-digit Token Number saves your draft for 30 days',
+      '3 Submission Modes: Paperless e-KYC, Scanned Image e-Sign, or Physical Document Post',
+      'Built-in Assessing Officer (AO) Code locator based on city and ward',
+      'Secure payment gateway for UPI, Net Banking, and Cards (₹107 India / ₹1,017 Overseas)'
+    ],
+    featuresList: [
+      {
+        title: 'New PAN Application for Indian Citizens (Form 49A)',
+        description: 'Comprehensive digital form for individual citizens, HUFs, companies, firms, LLPs, and trusts applying for fresh 10-character alphanumeric PAN allocation.',
+        category: 'core_service',
+        url: 'https://onlineservices.proteantech.in/paam/endUserRegisterContact.html',
+        badge: 'Form 49A'
+      },
+      {
+        title: 'Changes or Correction in Existing PAN Data',
+        description: 'Rectify misspelled name, incorrect date of birth, father\'s name, or address on existing PAN records, with automated issuance of a replacement physical PVC/laminated card.',
+        category: 'core_service',
+        url: 'https://onlineservices.proteantech.in/paam/endUserRegisterContact.html',
+        badge: 'PAN Correction'
+      },
+      {
+        title: 'Temporary Token Number (Draft Persistence)',
+        description: 'Immediately generates a 10-digit Token Number sent to your registered email upon initial registration. Allows users to exit and resume the application within 30 days under the "Registered User" tab without losing typed data.',
+        category: 'security_privacy',
+        url: 'https://onlineservices.proteantech.in/paam/endUserRegisterContact.html',
+        badge: '30-Day Recovery'
+      },
+      {
+        title: 'Submit Digitally through e-KYC & e-Sign (Paperless)',
+        description: '100% paperless mode powered by Aadhaar OTP authentication. Automatically pulls applicant photo, address, and demographic data from UIDAI. No physical document scanning or mailing required.',
+        category: 'core_service',
+        url: 'https://onlineservices.proteantech.in/paam/endUserRegisterContact.html',
+        badge: 'Paperless e-KYC'
+      },
+      {
+        title: 'Submit Scanned Images through e-Sign',
+        description: 'Upload your own custom passport photograph (3.5x2.5cm, 200 DPI) and signature crop with Aadhaar OTP e-Sign. Enables having a customized photo and clear signature on the physical card without mailing documents.',
+        category: 'core_service',
+        url: 'https://onlineservices.proteantech.in/paam/endUserRegisterContact.html',
+        badge: 'Custom Photo/Sig'
+      },
+      {
+        title: 'Forward Application Documents Physically',
+        description: 'For applicants without Aadhaar or encountering biometric/name mismatch errors: generates a pre-filled Form 49A PDF to print, paste two physical passport photos, sign across, and courier to Protean\'s Pune center.',
+        category: 'core_service',
+        url: 'https://onlineservices.proteantech.in/paam/endUserRegisterContact.html',
+        badge: 'Physical Courier'
+      },
+      {
+        title: 'Assessing Officer (AO Code) Locator',
+        description: 'Integrated ward/circle search tool that automatically resolves Area Code, AO Type, Range Code, and AO Number based on your Indian state, residential municipality, or corporate jurisdiction.',
+        category: 'verification',
+        url: 'https://onlineservices.proteantech.in/paam/endUserRegisterContact.html',
+        badge: 'Auto AO Code'
+      },
+      {
+        title: 'Reprint of Existing PAN Card',
+        description: 'Order an exact physical card replacement for lost, damaged, or faded PAN cards where no demographic details need to be changed. Delivers physical card in 7 to 10 days for ₹50.',
+        category: 'core_service',
+        url: 'https://www.onlineservices.nsdl.com/paam/ReprintEPan.html',
+        badge: '₹50 Card Reprint'
+      },
+      {
+        title: '15-Digit Acknowledgement Live Tracking',
+        description: 'Track application verification, income tax approval, card printing, and India Post Speed Post consignment tracking numbers using your 15-digit acknowledgement receipt.',
+        category: 'tracking_records',
+        url: 'https://tin.tin.nsdl.com/pantan/StatusTrack.html',
+        badge: 'Live Tracker'
+      }
+    ]
+  },
 
   // 06: Visual Step-by-Step Walkthrough
   steps: [

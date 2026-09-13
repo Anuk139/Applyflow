@@ -114,15 +114,23 @@ export const AADHAAR_SERVICE: ServiceDetail = {
 
   officialPortals: [
     {
-      label: 'myAadhaar Official Portal (UIDAI)',
+      label: 'UIDAI Official Portal (uidai.gov.in / हिन्दी)',
+      url: 'https://uidai.gov.in/hi',
+      purpose: 'information',
+      isGovtVerified: true,
+      badgeText: 'UIDAI Main Portal (हिन्दी/English)',
+      domainAlert: 'Always verify official URL is uidai.gov.in. Beware of fake lookalike sites.'
+    },
+    {
+      label: 'myAadhaar Citizen Self-Service Portal',
       url: 'https://myaadhaar.uidai.gov.in',
       purpose: 'application',
       isGovtVerified: true,
-      badgeText: 'Official Portal (uidai.gov.in)',
-      domainAlert: 'Ensure domain ends with .gov.in or .nic.in'
+      badgeText: 'myAadhaar Self-Service',
+      domainAlert: 'Ensure domain ends with uidai.gov.in'
     },
     {
-      label: 'Book an Appointment at Aadhaar Seva Kendra',
+      label: 'Book an Appointment at Aadhaar Seva Kendra (ASK)',
       url: 'https://appointments.uidai.gov.in/bookappointment.aspx',
       purpose: 'application',
       isGovtVerified: true,
@@ -136,13 +144,113 @@ export const AADHAAR_SERVICE: ServiceDetail = {
       badgeText: 'Status Tracker'
     },
     {
-      label: 'Download Electronic e-Aadhaar (PDF)',
+      label: 'Download Electronic e-Aadhaar (PDF / Masked)',
       url: 'https://myaadhaar.uidai.gov.in/gen-aeid',
       purpose: 'verification',
       isGovtVerified: true,
       badgeText: 'Download e-Aadhaar'
+    },
+    {
+      label: 'Order Official Aadhaar PVC Card (₹50)',
+      url: 'https://myaadhaar.uidai.gov.in/gen-pvc',
+      purpose: 'application',
+      isGovtVerified: true,
+      badgeText: 'Order PVC Card'
     }
   ],
+
+  // Official Website Capabilities & Features Breakdown
+  websiteFeatures: {
+    portalName: 'UIDAI Official Portal & myAadhaar (भारतीय विशिष्ट पहचान प्राधिकरण)',
+    officialUrl: 'https://uidai.gov.in/hi',
+    summary: 'The comprehensive digital identity portal operated by the Unique Identification Authority of India (UIDAI), offering citizen self-service in 13+ languages (including Hindi), biometric fraud protection, online appointment booking, and instant document management.',
+    highlights: [
+      'Full bilingual support: हिन्दी (Hindi), English, and regional Indian languages on uidai.gov.in/hi',
+      'Download standard or high-privacy Masked Aadhaar (xxxx-xxxx-1234)',
+      'Lock / Unlock Biometrics & Virtual ID (VID) for total fraud protection',
+      'Check NPCI Bank Seeding status for DBT government benefits',
+      'Order weather-proof PVC smart card delivered by Speed Post for ₹50'
+    ],
+    featuresList: [
+      {
+        title: 'Download Electronic e-Aadhaar (Regular & Masked)',
+        description: 'Download a digitally signed, legally valid PDF Aadhaar. Choose "Masked Aadhaar" to hide the first 8 digits (shows only xxxx-xxxx-1234) for privacy during hotel check-ins and non-statutory KYC.',
+        category: 'core_service',
+        url: 'https://myaadhaar.uidai.gov.in/gen-aeid',
+        badge: 'Instant PDF'
+      },
+      {
+        title: 'Order Official Aadhaar PVC Card',
+        description: 'Order a durable, wallet-sized synthetic PVC card equipped with a digitally signed secure QR code, hologram, microtext, and ghost image for ₹50 inclusive of Speed Post delivery.',
+        category: 'core_service',
+        url: 'https://myaadhaar.uidai.gov.in/gen-pvc',
+        badge: '₹50 Delivered'
+      },
+      {
+        title: 'Book an Appointment at Aadhaar Seva Kendra (ASK)',
+        description: 'Schedule a guaranteed date & time slot at an official UIDAI-run or Registrar Aadhaar Seva Kendra for fresh enrolment, biometric update, or name/DOB changes without waiting in lines.',
+        category: 'core_service',
+        url: 'https://appointments.uidai.gov.in/bookappointment.aspx',
+        badge: 'Skip Queues'
+      },
+      {
+        title: 'Lock / Unlock Biometrics',
+        description: 'Protect your fingerprints and iris scans against cyber frauds and unauthorized financial transactions (AePS) by locking your biometrics online. Instantly unlock via OTP when needed.',
+        category: 'security_privacy',
+        url: 'https://myaadhaar.uidai.gov.in/lock-unlock-biometrics',
+        badge: 'Anti-Fraud'
+      },
+      {
+        title: 'Generate Virtual ID (VID)',
+        description: 'Generate a temporary, revocable 16-digit Virtual ID that can be shared in place of your 12-digit Aadhaar number for authentication with banks, telecom, and verification agencies.',
+        category: 'security_privacy',
+        url: 'https://myaadhaar.uidai.gov.in/vid-generation',
+        badge: 'Privacy Safe'
+      },
+      {
+        title: 'Free Document Update (POI & POA Revalidation)',
+        description: 'Upload valid Proof of Identity and Proof of Address documents online for free to strengthen Aadhaar accuracy, especially recommended for Aadhaar cards issued over 10 years ago.',
+        category: 'core_service',
+        url: 'https://myaadhaar.uidai.gov.in/document-update',
+        badge: 'Free Online'
+      },
+      {
+        title: 'Check Bank Seeding Status (NPCI DBT Mapper)',
+        description: 'Verify in real-time which bank account is actively linked with your Aadhaar number to receive government subsidies, PM-KISAN grants, scholarships, and LPG subsidies.',
+        category: 'verification',
+        url: 'https://myaadhaar.uidai.gov.in/bank-seeding-status',
+        badge: 'DBT Direct Benefit'
+      },
+      {
+        title: 'Aadhaar Authentication History',
+        description: 'Inspect a detailed audit trail of your last 50 authentications (OTP, Biometric, Demographic) including exact timestamps and requesting entity names to detect any unauthorized access.',
+        category: 'tracking_records',
+        url: 'https://myaadhaar.uidai.gov.in/auth-history',
+        badge: 'Audit Trail'
+      },
+      {
+        title: 'Verify Email & Mobile Number',
+        description: 'Confirm whether your current active mobile number and email ID are properly registered in UIDAI records before initiating online services or OTP authentication.',
+        category: 'verification',
+        url: 'https://myaadhaar.uidai.gov.in/verify-email-mobile',
+        badge: 'Verify Status'
+      },
+      {
+        title: 'Retrieve Lost EID / Aadhaar Number',
+        description: 'Recover forgotten 12-digit Aadhaar number or 28-digit Enrolment ID (EID) by entering your name and registered mobile number; receive UID immediately via SMS.',
+        category: 'core_service',
+        url: 'https://myaadhaar.uidai.gov.in/retrieve-eid-uid',
+        badge: 'Instant SMS'
+      },
+      {
+        title: 'Grievance Redressal & 1947 Toll-Free Support',
+        description: 'Lodge grievances regarding delayed cards, operator misconduct, or status issues; track complaint progress online or contact the 24x7 toll-free helpline 1947 in 12 languages.',
+        category: 'grievance_support',
+        url: 'https://myaadhaar.uidai.gov.in/file-complaint',
+        badge: 'Toll-Free 1947'
+      }
+    ]
+  },
 
   steps: [
     {
