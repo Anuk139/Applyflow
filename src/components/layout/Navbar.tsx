@@ -27,6 +27,15 @@ export const Navbar: React.FC = () => {
   } = useApp();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 240);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const activeAppsCount = applications.length;
 
@@ -64,10 +73,12 @@ export const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* Live Search bar in nav with instant dropdown */}
-          <div className="hidden lg:flex items-center flex-1 max-w-sm mx-4">
-            <LiveSearchBar variant="navbar" placeholder="Search PAN, Voter, Aadhaar..." />
-          </div>
+          {/* Live Search bar in nav with instant dropdown - visible on non-home tabs or when scrolled past hero */}
+          {(activeTab !== 'home' || isScrolled) && (
+            <div className="hidden lg:flex items-center flex-1 max-w-sm mx-4 animate-in fade-in duration-200">
+              <LiveSearchBar variant="navbar" placeholder="Search PAN, Voter, Aadhaar..." />
+            </div>
+          )}
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-1 lg:gap-2">

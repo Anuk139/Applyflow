@@ -79,60 +79,83 @@ export function searchServices(query: string): ServiceDetail[] {
   const searchTerms = clean.split(/\s+/).filter(Boolean);
 
   const scoredServices = ALL_SERVICES.map(service => {
-    let score = 0;
+    let primaryScore = 0;
+    let secondaryScore = 0;
+
     const nameLower = service.name.toLowerCase();
     const shortNameLower = service.shortName.toLowerCase();
     const taglineLower = service.tagline.toLowerCase();
     const authorityLower = service.issuingAuthority.toLowerCase();
+    const categoryLower = service.category.toLowerCase();
     const keywords = SERVICE_KEYWORDS[service.id] || [];
 
-    // Exact matches
-    if (shortNameLower === clean || nameLower === clean) {
-      score += 100;
+    // 1. Direct full query matching against service identity
+    if (shortNameLower === clean || nameLower === clean || service.id === clean) {
+      primaryScore += 300;
+    } else if (shortNameLower.startsWith(clean) || nameLower.startsWith(clean)) {
+      primaryScore += 200;
     } else if (shortNameLower.includes(clean) || nameLower.includes(clean)) {
-      score += 50;
+      primaryScore += 150;
     }
 
-    // Keyword alias match
+    // 2. Keyword exact / alias matches
     for (const kw of keywords) {
       if (kw === clean) {
-        score += 80;
+        primaryScore += 250;
+        break;
+      } else if (kw.startsWith(clean)) {
+        primaryScore += 120;
         break;
       } else if (kw.includes(clean) || clean.includes(kw)) {
-        score += 40;
+        primaryScore += 80;
         break;
       }
     }
 
-    // Term by term checking
+    // 3. Tagline, authority, and category matches
+    if (taglineLower.includes(clean)) primaryScore += 35;
+    if (authorityLower.includes(clean)) primaryScore += 35;
+    if (categoryLower.includes(clean)) primaryScore += 25;
+
+    // 4. Term-by-term matching (for multi-word queries like "voter card")
     for (const term of searchTerms) {
-      if (nameLower.includes(term)) score += 20;
-      if (shortNameLower.includes(term)) score += 25;
-      if (taglineLower.includes(term)) score += 10;
-      if (authorityLower.includes(term)) score += 10;
-      if (service.category.toLowerCase().includes(term)) score += 15;
+      if (term.length < 2) continue;
+      if (shortNameLower.includes(term)) primaryScore += 45;
+      if (nameLower.includes(term)) primaryScore += 35;
+      if (keywords.some(k => k.includes(term))) primaryScore += 35;
+      if (taglineLower.includes(term)) primaryScore += 15;
+      if (authorityLower.includes(term)) primaryScore += 15;
 
-      // Check keywords
-      if (keywords.some(k => k.includes(term))) {
-        score += 25;
-      }
-
-      // Check document requirements
+      // Check document requirements (secondary match)
       const docMatch = service.documentRequirements.some(req => 
         req.title.toLowerCase().includes(term) ||
         req.options.some(opt => opt.name.toLowerCase().includes(term))
       );
       if (docMatch) {
-        score += 15;
+        secondaryScore += 20;
       }
     }
 
-    return { service, score };
+    return { 
+      service, 
+      primaryScore, 
+      secondaryScore 
+    };
   });
 
-  // Filter those with positive score and sort descending
+  // If any service matched directly by name or keywords, return ONLY primary matches
+  const hasPrimaryMatches = scoredServices.some(item => item.primaryScore > 0);
+
+  if (hasPrimaryMatches) {
+    return scoredServices
+      .filter(item => item.primaryScore > 0)
+      .sort((a, b) => b.primaryScore - a.primaryScore)
+      .map(item => item.service);
+  }
+
+  // Fallback: If no service matched by name or keywords, return services that accept this document
   return scoredServices
-    .filter(item => item.score > 0)
-    .sort((a, b) => b.score - a.score)
+    .filter(item => item.secondaryScore > 0)
+    .sort((a, b) => b.secondaryScore - a.secondaryScore)
     .map(item => item.service);
 }
