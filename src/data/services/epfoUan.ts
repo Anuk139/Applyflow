@@ -143,6 +143,85 @@ export const EPFO_UAN_SERVICE: ServiceDetail = {
     }
   ],
 
+  // Official Website Capabilities & Features Breakdown
+  websiteFeatures: {
+    portalName: 'EPFO Unified Member Portal (Member e-Sewa) - Employees\' Provident Fund Organisation',
+    officialUrl: 'https://unifiedportal-mem.epfindia.gov.in/memberinterface/',
+    summary: 'The statutory web portal of the Employees\' Provident Fund Organisation (Ministry of Labour & Employment) serving more than 70 million formal sector workers in India. Offers paperless online PF withdrawals (Forms 31, 19, 10C, 10D), IT-driven Auto-Claim settlement for medical/education needs up to ₹1,00,000 within 3 to 4 days, automated PF transfers via One Member One EPF Account (Form 13), online Joint Declaration profile corrections, instant bank account seeding via penny drop, and electronic passbook access.',
+    highlights: [
+      'Auto-Mode Claim Settlement: Claims up to ₹1 Lakh for medical/education settled in 3 to 4 days via automated IT algorithm',
+      '100% Paperless Claims: Submit Form 31 (Advance), Form 19 (Final Settlement), and Form 10C (Pension) without employer intervention',
+      'One Member - One EPF Account (Form 13): Automated balance transfer when changing jobs',
+      'Online Joint Declaration: Rectify demographic mismatches (Name, DOB, Gender, Date of Exit) online with digital employer approval',
+      'Direct Bank Seeding with NPCI Penny Drop verification ensuring direct credit without delays'
+    ],
+    featuresList: [
+      {
+        title: 'Online Claim Submission (Forms 31, 19, 10C & 10D)',
+        description: 'Submit claims directly from home for PF advances during employment (illness, house purchase, marriage), complete PF settlement after quitting, or pension withdrawal certificate without visiting the employer or EPFO office.',
+        category: 'core_service',
+        url: 'https://unifiedportal-mem.epfindia.gov.in/memberinterface/',
+        badge: 'Paperless Claims'
+      },
+      {
+        title: 'Auto-Mode Claim Settlement (Up to ₹1,00,000)',
+        description: 'Automated settlement architecture for illness and education claims up to ₹1 Lakh, processed and credited within 72 to 96 hours via computer algorithm without human clerk intervention.',
+        category: 'core_service',
+        url: 'https://unifiedportal-mem.epfindia.gov.in/memberinterface/',
+        badge: '3-4 Day Auto Mode'
+      },
+      {
+        title: 'Electronic Passbook & Pension Portal',
+        description: 'Download detailed PDF contribution passbooks reflecting monthly employee share, employer share, and EPS pension contributions along with compound annual interest credited by the government.',
+        category: 'tracking_records',
+        url: 'https://passbook.epfindia.gov.in/MemberPassBook/Login',
+        badge: 'EPF Passbook'
+      },
+      {
+        title: 'One Member - One EPF Account (Transfer Request Form 13)',
+        description: 'Consolidate multiple past PF Member IDs into your current active Member ID when switching companies, with automated tracking of employer digital signature attestation.',
+        category: 'core_service',
+        url: 'https://unifiedportal-mem.epfindia.gov.in/memberinterface/',
+        badge: 'Form 13 Transfer'
+      },
+      {
+        title: 'Online Joint Declaration (Profile Modification)',
+        description: 'Standardized digital workflow to correct errors in applicant name, father\'s name, date of birth, date of joining, and date of exit (DOE) with Aadhaar-linked OTP and employer digital signature.',
+        category: 'verification',
+        url: 'https://unifiedportal-mem.epfindia.gov.in/memberinterface/',
+        badge: 'Joint Declaration'
+      },
+      {
+        title: 'KYC Updation & Penny Drop Verification',
+        description: 'Seed active bank account details verified via instant ₹1 NPCI penny drop, link PAN to prevent 34.6% maximum marginal TDS deduction on claims above ₹50k, and verify Aadhaar linkage.',
+        category: 'verification',
+        url: 'https://unifiedportal-mem.epfindia.gov.in/memberinterface/',
+        badge: 'Penny Drop KYC'
+      },
+      {
+        title: 'UAN Activation & Password Reset',
+        description: 'Self-service 24x7 tool allowing newly employed workers to activate their Universal Account Number (UAN) using registered mobile OTP and set a permanent credential without administrative fees.',
+        category: 'security_privacy',
+        url: 'https://unifiedportal-mem.epfindia.gov.in/memberinterface/',
+        badge: 'Instant Activation'
+      },
+      {
+        title: 'Track Claim Status (Real-Time)',
+        description: 'Monitor claim lifecycle through Field Office receipt, Under Process status, Dispatch stage, and final NEFT payment transaction reference numbers.',
+        category: 'tracking_records',
+        url: 'https://passbook.epfindia.gov.in/MemClaimStatusUAN/',
+        badge: 'Claim Tracker'
+      },
+      {
+        title: 'EPFiGMS Grievance Portal',
+        description: 'Time-bound grievance redressal framework (epfigms.gov.in) with multi-level escalation to Regional PF Commissioners for delayed settlements or unresponsive employers.',
+        category: 'grievance_support',
+        url: 'https://epfigms.gov.in',
+        badge: 'EPFiGMS'
+      }
+    ]
+  },
+
   steps: [
     {
       stepNumber: 1,

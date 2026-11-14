@@ -140,6 +140,92 @@ export const DRIVING_LICENSE_SERVICE: ServiceDetail = {
     }
   ],
 
+  // Official Website Capabilities & Features Breakdown
+  websiteFeatures: {
+    portalName: 'Sarathi Parivahan Citizen Portal - Ministry of Road Transport and Highways (MoRTH)',
+    officialUrl: 'https://sarathi.parivahan.gov.in/',
+    summary: 'The flagship national transport portal of MoRTH digitizing citizen driving services across over 1,300 RTOs in India. Features contactless Learner Licence (LL) applications via Aadhaar e-KYC, online audio-visual road safety tests from home with webcam proctoring, online slot booking for permanent driving test tracks, faceless licence renewal and address updates, and legally valid virtual licences in mParivahan & DigiLocker.',
+    highlights: [
+      'Contactless Learner Licence (LL) test from home using Aadhaar e-KYC & AI webcam proctoring',
+      'Over 18 completely faceless citizen services with zero visits to the regional transport office',
+      'Online Slot Booking system for permanent driving test tracks with batch time selection',
+      'Legally recognized digital driving licences under Rule 139 of the Central Motor Vehicles Rules',
+      'International Driving Permit (IDP) online application and document verification'
+    ],
+    featuresList: [
+      {
+        title: 'Apply for Learner Licence (Contactless Mode)',
+        description: 'Complete online application for two-wheelers (MCWG) and four-wheelers (LMV) using Aadhaar authentication, bypassing physical queues and manual document verification at the RTO.',
+        category: 'core_service',
+        url: 'https://sarathi.parivahan.gov.in/',
+        badge: 'Faceless LL'
+      },
+      {
+        title: 'Online Learner Licence Test (STALL from Home)',
+        description: 'Screen Test for Absentee Learner Licence (STALL) enables taking the computer road safety and traffic signs exam from your home computer or mobile with AI facial liveness detection.',
+        category: 'core_service',
+        url: 'https://sarathi.parivahan.gov.in/',
+        badge: 'Home Exam'
+      },
+      {
+        title: 'Apply for Driving Licence (Permanent)',
+        description: 'Apply for a permanent Driving Licence smart card after holding a valid Learner Licence for 30 days, including biometrics, photo capture, and automated track evaluation.',
+        category: 'core_service',
+        url: 'https://sarathi.parivahan.gov.in/',
+        badge: 'Permanent DL'
+      },
+      {
+        title: 'Online Slot Booking (LL / DL Test Slots)',
+        description: 'Self-service calendar allowing applicants to reserve specific dates and morning/afternoon testing batches at automated driving test tracks (ADTT) or local RTOs.',
+        category: 'core_service',
+        url: 'https://sarathi.parivahan.gov.in/',
+        badge: 'Slot Booking'
+      },
+      {
+        title: 'Faceless DL Services (Renewal, Address Change, Duplicate)',
+        description: '18+ completely online services under MoRTH guidelines: change residential address, renew expired licence, request replacement duplicate card, or update mobile number via Aadhaar OTP.',
+        category: 'core_service',
+        url: 'https://sarathi.parivahan.gov.in/',
+        badge: '18+ Services'
+      },
+      {
+        title: 'Digital Licence in mParivahan & DigiLocker',
+        description: 'Instant synchronization of approved driving licences with mParivahan and DigiLocker. QR-coded virtual credentials are legally recognized across India under Central Motor Vehicles Rules (CMVR) Rule 139.',
+        category: 'security_privacy',
+        url: 'https://parivahan.gov.in/',
+        badge: 'Rule 139 CMVR'
+      },
+      {
+        title: 'Application Status Tracker',
+        description: 'Detailed multi-stage tracking providing status of document scrutiny, test results, RTO approval, smart card printing, and India Post Speed Post dispatch consignment numbers.',
+        category: 'tracking_records',
+        url: 'https://sarathi.parivahan.gov.in/sarathiservice/applViewStatus.do',
+        badge: 'Status Tracker'
+      },
+      {
+        title: 'Mock Test for Learner Licence',
+        description: 'Interactive multilingual practice quiz with audio-visual simulations of mandatory road safety signs, cautionary signals, and right-of-way regulations.',
+        category: 'verification',
+        url: 'https://sarathi.parivahan.gov.in/',
+        badge: 'Mock Quiz'
+      },
+      {
+        title: 'International Driving Permit (IDP)',
+        description: 'Apply for an official 1-year valid International Driving Permit for traveling abroad with online visa and flight ticket verification.',
+        category: 'core_service',
+        url: 'https://sarathi.parivahan.gov.in/',
+        badge: 'IDP Permit'
+      },
+      {
+        title: 'Parivahan Sewa Helpline & Support',
+        description: 'Toll-free citizen assistance desk (0120-2459169) and online grievance portal for payment failures, slot rescheduling, and application bottlenecks.',
+        category: 'grievance_support',
+        url: 'https://parivahan.gov.in/',
+        badge: '0120-2459169'
+      }
+    ]
+  },
+
   steps: [
     {
       stepNumber: 1,

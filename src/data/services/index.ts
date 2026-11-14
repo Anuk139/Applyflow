@@ -41,12 +41,14 @@ const SERVICE_KEYWORDS: Record<string, string[]> = {
   'passport-seva': [
     'passport', 'indian passport', 'pass port', 'tatkaal', 'tatkal', 'psk', 'popsk', 
     'passport seva', 'mea', 'rpo', 'consular', 'travel document', 'emigration', 
-    'non-ecr', 'ecr', 'police verification', 'visa'
+    'non-ecr', 'ecr', 'police verification', 'visa', 'passportindia.gov.in', 'mpassport',
+    'digilocker passport', 'e-passport', 'epassport', 'chip passport', 'pcc', 'police clearance certificate'
   ],
   'driving-license': [
     'driving', 'driving licence', 'driving license', 'dl', 'learner', 'learners', 'll', 
     'learner licence', 'rto', 'sarathi', 'parivahan', 'morth', 'vehicle', 'motorcycle', 
-    'mcwg', 'lmv', 'car licence', 'bike licence', 'stall test', 'driving test'
+    'mcwg', 'lmv', 'car licence', 'bike licence', 'stall test', 'driving test',
+    'sarathi.parivahan.gov.in', 'contactless ll', 'mparivahan', 'virtual dl', 'rule 139', 'idp'
   ],
   'bank-savings-account': [
     'bank', 'banking', 'savings account', 'bank account', 'open bank account', 
@@ -58,12 +60,14 @@ const SERVICE_KEYWORDS: Record<string, string[]> = {
   'national-scholarship-portal': [
     'scholarship', 'scholarships', 'nsp', 'national scholarship', 'otr', 'face auth', 
     'college fees', 'post matric', 'pre matric', 'merit', 'aicte', 'ugc', 'dbt', 
-    'financial grant', 'education loan', 'bonafide', 'pfms'
+    'financial grant', 'education loan', 'bonafide', 'pfms', 'scholarships.gov.in',
+    'nsp otr', 'aadhaar facerd', 'aishe code', 'udise'
   ],
   'epfo-uan-service': [
     'pf', 'epf', 'epfo', 'uan', 'provident fund', 'pf withdrawal', 'form 31', 'form 19', 
     'form 10c', 'advance pf', 'pf balance', 'passbook', 'pension', 'claim status', 
-    'salary slip', 'labour ministry'
+    'salary slip', 'labour ministry', 'epfindia.gov.in', 'member e-sewa', 'auto claim',
+    'joint declaration', 'form 13', 'epfigms', 'passbook.epfindia.gov.in'
   ]
 };
 

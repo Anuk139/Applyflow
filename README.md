@@ -5,11 +5,10 @@
 
 ---
 
-## 👥 Project Development Team
-- **K. ANU**
-- **N. VIJAY ANIL**
-- **K. JASWANTH**
-- **N. KASHI RAMU**
+## 🛡️ Citizen Safety & Privacy Principles
+- **100% Client-Side Privacy**: Zero backend storage of personal documents, identity cards, or phone numbers.
+- **Anti-Phishing Shield**: Every official service link is strictly vetted against sovereign government domain registries (`.gov.in` / `.nic.in` / RBI-regulated entities).
+- **Independent Guidance**: Designed exclusively to inform, prepare, and navigate citizens through legitimate procedures without unauthorized fees or third-party middlemen.
 
 ---
 

@@ -133,6 +133,92 @@ export const PASSPORT_SERVICE: ServiceDetail = {
     }
   ],
 
+  // Official Website Capabilities & Features Breakdown
+  websiteFeatures: {
+    portalName: 'Passport Seva Online Portal (PSP) - Ministry of External Affairs (MEA)',
+    officialUrl: 'https://www.passportindia.gov.in/',
+    summary: 'The sovereign digital passport issuance platform of the Government of India managed by the Consular, Passport & Visa (CPV) Division. Connects citizens across India with over 500 Passport Seva Kendras (PSK) and Post Office Passport Seva Kendras (POPSK). Supports paperless DigiLocker integration, real-time appointment quota tracking, next-generation chip-based e-Passports, Tatkaal fast-track clearance, Police Clearance Certificates (PCC), and Speed Post consignment delivery tracking.',
+    highlights: [
+      'Mandatory DigiLocker document submission for instant POI/POA paperless verification',
+      'Live Appointment Availability Status across all PSKs, POPSKs, and Regional Passport Offices',
+      'Rollout of ICAO-compliant contactless e-Passports with embedded secure electronic microchips',
+      'Tatkaal Scheme enabling fast-track passport issuance in 1 to 3 days',
+      'Integrated Police Clearance Certificate (PCC) and Surrender Certificate services for overseas travel'
+    ],
+    featuresList: [
+      {
+        title: 'Apply for Fresh Passport / Re-issue of Passport',
+        description: 'Complete digital form submission for 36-page or 60-page passport booklets under Normal (₹1,500) and Tatkaal (₹3,500) schemes with automatic appointment scheduling upon payment.',
+        category: 'core_service',
+        url: 'https://www.passportindia.gov.in/',
+        badge: 'Fresh & Re-issue'
+      },
+      {
+        title: 'DigiLocker Paperless Document Integration',
+        description: 'Directly fetch and attach Aadhaar, Driving Licence, and educational certificates via DigiLocker, eliminating manual photocopies and accelerating counter clearance at PSK.',
+        category: 'verification',
+        url: 'https://www.passportindia.gov.in/',
+        badge: 'DigiLocker Verified'
+      },
+      {
+        title: 'Real-Time Appointment Availability Checker',
+        description: 'Live availability matrix allowing applicants to check available dates and slot quotas across all PSK and POPSK centers in their state before paying the application fee.',
+        category: 'core_service',
+        url: 'https://www.passportindia.gov.in/AppOnlineProject/online/apptAvailStatus',
+        badge: 'Live Slot Tracker'
+      },
+      {
+        title: 'Tatkaal Fast-Track Application Workflow',
+        description: 'Expedited processing pathway delivering passports within 1 to 3 working days for urgent international travel upon presenting standard verification proofs (Annexure E, Aadhaar, etc.).',
+        category: 'core_service',
+        url: 'https://www.passportindia.gov.in/',
+        badge: '1-3 Day Tatkaal'
+      },
+      {
+        title: 'Police Clearance Certificate (PCC)',
+        description: 'Apply for and track official PCC issued by the Regional Passport Office, mandatory for long-term work permits, permanent residency, and international student visas.',
+        category: 'core_service',
+        url: 'https://www.passportindia.gov.in/',
+        badge: 'PCC Service'
+      },
+      {
+        title: 'e-Passport (Biometric Chip) Integration',
+        description: 'Next-generation travel document with an embedded radio-frequency chip containing applicant biometric credentials, digital signature, and anti-tamper security meeting ICAO 9303 standards.',
+        category: 'security_privacy',
+        url: 'https://www.passportindia.gov.in/',
+        badge: 'e-Passport Chip'
+      },
+      {
+        title: 'Application Status Tracker (15-Digit ARN)',
+        description: 'Multi-stage real-time tracking from document verification at Counter A/B/C to Police Verification Report (PVR) clearance, passport printing, and India Post Speed Post Consignment tracking.',
+        category: 'tracking_records',
+        url: 'https://www.passportindia.gov.in/AppOnlineProject/statusTracker/trackStatusInpNew',
+        badge: 'ARN Tracker'
+      },
+      {
+        title: 'Fee Calculator & Document Advisor',
+        description: 'Interactive self-service wizards that compute exact government charges based on age and validity, and generate a customized document checklist tailored to the applicant.',
+        category: 'verification',
+        url: 'https://www.passportindia.gov.in/AppOnlineProject/fee/feeInput',
+        badge: 'Document Advisor'
+      },
+      {
+        title: 'mPassport Seva Mobile Application',
+        description: 'Official MEA mobile application on Android and iOS enabling appointment scheduling, status tracking, and document guidelines directly on smartphones.',
+        category: 'core_service',
+        url: 'https://www.passportindia.gov.in/',
+        badge: 'Mobile App'
+      },
+      {
+        title: 'National Passport Call Centre (1800-258-1800)',
+        description: '24x7 multi-lingual citizen support helpline providing real-time guidance on appointments, document inquiries, and grievance resolution.',
+        category: 'grievance_support',
+        url: 'https://www.passportindia.gov.in/',
+        badge: '1800-258-1800'
+      }
+    ]
+  },
+
   steps: [
     {
       stepNumber: 1,

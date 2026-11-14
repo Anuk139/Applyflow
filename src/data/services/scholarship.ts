@@ -148,6 +148,85 @@ export const SCHOLARSHIP_SERVICE: ServiceDetail = {
     }
   ],
 
+  // Official Website Capabilities & Features Breakdown
+  websiteFeatures: {
+    portalName: 'National Scholarship Portal (NSP) - Ministry of Electronics and Information Technology (MeitY)',
+    officialUrl: 'https://scholarships.gov.in/',
+    summary: 'The sovereign digital scholarship platform of the Government of India facilitating direct financial assistance to students across India. Features mandatory One Time Registration (OTR) with mobile-based Aadhaar FaceRD biometric authentication, transparent Direct Benefit Transfer (DBT) directly into student bank accounts via PFMS, automated AISHE/UDISE+ educational institution validation, defect rectification workflows, and multi-scheme eligibility filtering.',
+    highlights: [
+      'Mandatory One Time Registration (OTR): 14-digit unique student identifier replacing multiple logins',
+      'Aadhaar FaceRD Face-Authentication: Seamless paperless biometric verification via smartphone camera',
+      'Direct Benefit Transfer (DBT) via PFMS: Zero middlemen; funds directly credited to NPCI-mapped bank accounts',
+      'AISHE / UDISE+ Registry: Real-time validation of educational institution recognition across India',
+      'Institute Defective Return Workflow: Transparent rectification of application errors without outright rejection'
+    ],
+    featuresList: [
+      {
+        title: 'One Time Registration (OTR)',
+        description: 'Permanent 14-digit student reference number required to apply for all Central, State, UGC, and AICTE scholarship schemes throughout academic life.',
+        category: 'core_service',
+        url: 'https://scholarships.gov.in/',
+        badge: '14-Digit OTR'
+      },
+      {
+        title: 'NSP OTR Face-Auth App Integration',
+        description: 'Biometric face verification powered by UIDAI\'s Aadhaar FaceRD engine, allowing paperless authentication via smartphone front camera without external biometric scanners.',
+        category: 'verification',
+        url: 'https://scholarships.gov.in/',
+        badge: 'FaceRD Auth'
+      },
+      {
+        title: 'Apply for Central, UGC, AICTE & State Schemes',
+        description: 'Unified single-window application for Central Sector scheme, Post-Matric and Pre-Matric SC/ST/OBC schemes, AICTE Pragati, Saksham, and Swanath technical scholarships.',
+        category: 'core_service',
+        url: 'https://scholarships.gov.in/',
+        badge: 'Unified Window'
+      },
+      {
+        title: 'Direct Benefit Transfer (DBT) via PFMS',
+        description: 'Automated electronic transfer directly to the student\'s Aadhaar-seeded bank account via Public Financial Management System (PFMS), with SMS alerts at payment milestone stages.',
+        category: 'security_privacy',
+        url: 'https://scholarships.gov.in/',
+        badge: 'PFMS DBT'
+      },
+      {
+        title: 'Institute Verification & AISHE / UDISE+ Lookup',
+        description: 'Automated verification matching enrolled colleges and universities against the national All India Survey on Higher Education (AISHE) code, preventing fraudulent institution routing.',
+        category: 'verification',
+        url: 'https://scholarships.gov.in/',
+        badge: 'AISHE Registry'
+      },
+      {
+        title: 'Defective Application Return & Correction Mode',
+        description: 'When errors or missing bonafide certificates are detected during college or district scrutiny, applications are marked "Defective" with specific remarks, allowing student re-submission without rejection.',
+        category: 'core_service',
+        url: 'https://scholarships.gov.in/',
+        badge: 'Defect Correction'
+      },
+      {
+        title: 'Scheme Eligibility Search Wizard',
+        description: 'Interactive eligibility checker allowing students to input their state of domicile, course category, gender, religion, and family income to instantly view matching scholarship amounts.',
+        category: 'verification',
+        url: 'https://scholarships.gov.in/',
+        badge: 'Scheme Finder'
+      },
+      {
+        title: 'Track Application Status & Token Lookup',
+        description: 'Detailed multi-stage tracking for Institute Nodal Officer (INO) approval, District Nodal Officer (DNO) approval, State Nodal Officer (SNO) validation, and PFMS treasury disbursement.',
+        category: 'tracking_records',
+        url: 'https://scholarships.gov.in/',
+        badge: 'Status Tracker'
+      },
+      {
+        title: 'NSP Helpdesk & Grievance Cell (0120-6619540)',
+        description: 'Dedicated national technical helpdesk and email support ticketing system to resolve login issues, OTR mismatches, or institution mapping delays.',
+        category: 'grievance_support',
+        url: 'https://scholarships.gov.in/',
+        badge: '0120-6619540'
+      }
+    ]
+  },
+
   steps: [
     {
       stepNumber: 1,

@@ -121,22 +121,24 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Project Team & Disclaimer */}
+          {/* Verification & Citizen Safety Commitment */}
           <div>
-            <h4 className="text-white font-bold text-sm tracking-wider uppercase mb-3.5">
-              Project Development Team
+            <h4 className="text-white font-bold text-sm tracking-wider uppercase mb-3.5 flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              Citizen Safety Standards
             </h4>
-            <div className="bg-slate-800/80 rounded-xl p-3 border border-slate-700 space-y-1.5 text-xs text-slate-300 mb-3">
-              <p className="font-semibold text-white">Smart Document Assistant Core Team:</p>
-              <div className="grid grid-cols-2 gap-1 text-slate-300">
-                <span>• K. ANU</span>
-                <span>• N. VIJAY ANIL</span>
-                <span>• K. JASWANTH</span>
-                <span>• N. KASHI RAMU</span>
+            <div className="bg-slate-800/80 rounded-xl p-3 border border-slate-700 space-y-2 text-xs text-slate-300 mb-3">
+              <div className="flex items-start gap-2">
+                <span className="text-emerald-400 font-bold">✓</span>
+                <span><strong>100% Client-Side Privacy:</strong> Zero document storage or personal data tracking.</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-emerald-400 font-bold">✓</span>
+                <span><strong>Official Portals Only:</strong> Verified <code className="text-emerald-400">.gov.in</code> and RBI-compliant regulatory links.</span>
               </div>
             </div>
             <p className="text-[11px] text-slate-400 leading-relaxed">
-              <strong>Official Disclaimer:</strong> Smart Document Assistant is an independent educational guidance system. We do not provide government services or collect citizen data. Always apply through verified official portals (<code className="text-slate-300">.gov.in</code>).
+              <strong>Official Disclaimer:</strong> Smart Document Assistant is an independent preparation and educational guidance platform. We do not provide government services or collect citizen data. Always apply through verified official portals.
             </p>
           </div>
 
